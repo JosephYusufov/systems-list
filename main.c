@@ -3,22 +3,37 @@
 #include "list.h"
 
 int main(){
+  printf("\n--------------------------------------\n");
+  printf("Joseph Yusufov: Linked-list Assignment \n");
+  printf("\n");
+  printf("Due 2019-10-28\n");
+  printf("--------------------------------------\n\n");
   struct node *list = NULL;
-  printf("empty list");
+  printf("empty list\n");
   print_list(list);
   
-  int i = 0;
-  list = insert_front(list, 0);
-  list = insert_front(list, 1);
-  list = insert_front(list, 2);
-  list = insert_front(list, 3);
-  list = insert_front(list, 4);
-  list = insert_front(list, 5);
-  list = insert_front(list, 6);
-  list = insert_front(list, 7);
-  list = insert_front(list, 8);
-  list = insert_front(list, 9);
-  printf("inserting into list: [0, 9]");
+  int i = 9;
+  for (i; i >= 0; i--){
+    list = insert_front(list, i);
+  }
+  printf("inserting into list: [0, 9]\n");
   print_list(list);
+
+  printf("Removing 0\n");
+  list = remove_node(list, 0);
+  print_list(list);
+
+  printf("Removing 7\n");
+  list = remove_node(list, 7);
+  print_list(list);
+
+  printf("Removing -1\n");
+  list = remove_node(list, -1);
+  print_list(list);
+
+  printf("freeing list\n");
+  list = free_list(list);
+  print_list(list);
+
   return 0;
 }
